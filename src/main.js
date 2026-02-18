@@ -6,3 +6,10 @@ async function testFetch() {
 }
 
 testFetch();
+
+
+
+
+
+
+
