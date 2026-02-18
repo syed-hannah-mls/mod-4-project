@@ -7,7 +7,9 @@ export const getCharacter = async () => {
         }
             const data = await response.json()
             return { data: data, error: null}
-    } 
+    }
+    
+    //resolved
     catch (error) {
         console.warn(error)
         return { data: null, error: error.message }
