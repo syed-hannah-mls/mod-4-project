@@ -6,16 +6,15 @@
     <title>Star Wars Character Explorer</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
-  <body>
-    <header>
-      <h1>Star Wars Character Explorer</h1>
-    </header>
 
+  <header>
+    <h1>Star Wars Character Explorer</h1>
+  </header>
+
+  <body>
     <p id="error-message" class="hidden"></p>
 
     <main>
-      <section id="character-details" class="hidden"></section>
-
       <section>
         <h2>Characters (<span id="character-count">0</span>)</h2>
 
@@ -35,6 +34,7 @@
 
         <ul id="characters-list"></ul>
       </section>
+      <section id="character-details" class="hidden"></section>
     </main>
 
     <script type="module" src="./src/main.js"></script>

@@ -4,7 +4,13 @@ import { renderCharacterList, renderCharacterDetails } from "./dom-helpers.js";
 
 
 const loadCharacter = async () => {
-    const result = await getCharacter()
+    try {
+        const characters = await getAllCharacters();
+        renderCharacterList(characters);
+    } catch (error) {
+        console.error(error);
+    }
+};
 
     if(result.error){
         console.warn(result.error)
