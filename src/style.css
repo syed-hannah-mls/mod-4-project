@@ -41,6 +41,7 @@ ul#characters-list li {
   cursor: pointer;
   color: #0b0c10;
   font-weight: bold;
+  transition: all 0.1s ease;
 }
 ul#characters-list li:hover {
   transform: scale(1.05);
@@ -66,4 +67,21 @@ ul#characters-list li:hover {
   text-shadow: 0 0 5px #45a29e;
   text-align: center;
   font-size: 2rem;
+}
+
+#load-more-btn {
+  display: block;
+  background: linear-gradient(135deg, #45a29e, #66fcf1);
+  color: #0b0c10;
+  margin: 20px auto;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 25px;
+  font-weight: bold;
+  cursor: pointer;
+   transition: all 0.1s ease;
+}
+#load-more-btn:hover  {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #66fcf1;
 }
