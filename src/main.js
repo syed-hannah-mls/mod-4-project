@@ -1,25 +1,20 @@
-import { getCharacter, getSingleCharacter } from "./fetch-helpers.js";
+import { getAllCharacters, getSingleCharacter } from "./fetch-helpers.js";
 
 import { renderCharacterList, renderCharacterDetails } from "./dom-helpers.js";
 
 
 const loadCharacter = async () => {
-    try {
-        const characters = await getAllCharacters();
-        renderCharacterList(characters);
-    } catch (error) {
-        console.error(error);
+    const result = await getAllCharacters();
+
+    if (result.error) {
+        console.warn(result.error);
+        return;
     }
+
+    renderCharacterList(result.data);
 };
 
-    if(result.error){
-        console.warn(result.error)
-        return
-    } 
-    renderCharacterList(result.data.results)
-}
-
-loadCharacter()
+loadCharacter();
 
 export const handleCharacterClick = async (id) => {
     const result = await getSingleCharacter(id);
