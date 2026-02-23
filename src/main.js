@@ -22,6 +22,10 @@ factionForm.addEventListener('submit', (e) => {
   factionResult.textContent = assigned.msg(name);
 });
 
+const loadMore = document.querySelector('#load-more-btn')
+let allCharacters = []
+let visibleCount = 5
+
 const loadCharacter = async () => {
     const result = await getAllCharacters();
 
@@ -30,8 +34,18 @@ const loadCharacter = async () => {
         return;
     }
 
+<<<<<<< more-button
+    allCharacters = result.data
+    renderCharacterList(allCharacters.slice(0, visibleCount));
+
+    handleMoreCharacter()
+  } catch (error) {
+    console.error(error);
+  }
+=======
     renderCharacterList(result.data);
     initSearch(result.data)
+>>>>>>> main
 };
 
 loadCharacter();
@@ -46,3 +60,23 @@ export const handleCharacterClick = async (id) => {
 
   renderCharacterDetails(result.data);
 };
+
+
+function handleMoreCharacter() {
+    loadMore.classList.remove('hidden')
+
+    loadMore.addEventListener(('click'), () => {
+        if (visibleCount >= allCharacters.length){
+            visibleCount = 5
+            loadMore.textContent = 'Load More'
+        } else {
+            visibleCount += 5
+
+            if (visibleCount >= allCharacters.length){
+                loadMore.textContent = 'Show Less'
+            }
+        }
+    renderCharacterList(allCharacters.slice(0, visibleCount));
+        
+    })
+    }
