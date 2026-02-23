@@ -37,12 +37,12 @@ const loadCharacter = async () => {
 loadCharacter();
 
 export const handleCharacterClick = async (id) => {
-    const result = await getSingleCharacter(id);
+  const result = await getSingleCharacter(id);
 
-    if (result.error) {
-        console.warn(result.error);
-        return;
-    }
+  if (result.error) {
+    console.warn(result.error);
+    return;
+  }
 
-    renderCharacterDetails(result.data);
+  renderCharacterDetails(result.data);
 };
