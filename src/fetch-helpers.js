@@ -10,7 +10,6 @@ export const getAllCharacters = async () => {
             const data = await response.json();
             allCharacters = allCharacters.concat(data.results);
             url = data.next; //at some point this will make the url falsy
-            throw new Error('Error occurred')
         }
         
         return { data: allCharacters, error: null }
