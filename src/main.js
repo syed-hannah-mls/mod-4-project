@@ -1,5 +1,4 @@
 import { getAllCharacters, getSingleCharacter } from "./fetch-helpers.js";
-
 import { renderCharacterList, renderCharacterDetails, initSearch } from "./dom-helpers.js";
 
 // Faction sorter
@@ -16,67 +15,60 @@ factionForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = recruitInput.value.trim();
   if (!name) return;
-
   const assigned = factions[Math.floor(Math.random() * factions.length)];
   factionResult.className = assigned.class;
   factionResult.textContent = assigned.msg(name);
 });
 
-const loadMore = document.querySelector('#load-more-btn')
-let allCharacters = []
-let visibleCount = 5
+// Load more
+const loadMoreBtn = document.querySelector('#load-more-btn');
+let allCharacters = [];
+let visibleCount = 5;
 
 const loadCharacter = async () => {
-    const result = await getAllCharacters();
-
-    if (result.error) {
-        console.warn(result.error);
-        return;
-    }
-
-<<<<<<< more-button
-    allCharacters = result.data
-    renderCharacterList(allCharacters.slice(0, visibleCount));
-
-    handleMoreCharacter()
-  } catch (error) {
-    console.error(error);
-  }
-=======
-    renderCharacterList(result.data);
-    initSearch(result.data)
->>>>>>> main
-};
-
-loadCharacter();
-
-export const handleCharacterClick = async (id) => {
-  const result = await getSingleCharacter(id);
+  const result = await getAllCharacters();
 
   if (result.error) {
     console.warn(result.error);
     return;
   }
 
-  renderCharacterDetails(result.data);
+  allCharacters = result.data;
+  renderCharacterList(allCharacters.slice(0, visibleCount));
+  initSearch(allCharacters);
+  setupLoadMore();
 };
 
+function setupLoadMore() {
+  loadMoreBtn.classList.remove('hidden');
+  updateButtonLabel();
 
-function handleMoreCharacter() {
-    loadMore.classList.remove('hidden')
-
-    loadMore.addEventListener(('click'), () => {
-        if (visibleCount >= allCharacters.length){
-            visibleCount = 5
-            loadMore.textContent = 'Load More'
-        } else {
-            visibleCount += 5
-
-            if (visibleCount >= allCharacters.length){
-                loadMore.textContent = 'Show Less'
-            }
-        }
-    renderCharacterList(allCharacters.slice(0, visibleCount));
-        
-    })
+  loadMoreBtn.addEventListener('click', () => {
+    if (visibleCount >= allCharacters.length) {
+      // reset to top
+      visibleCount = 5;
+    } else {
+      visibleCount += 5;
     }
+
+    renderCharacterList(allCharacters.slice(0, visibleCount));
+    updateButtonLabel();
+  });
+}
+
+function updateButtonLabel() {
+  loadMoreBtn.textContent = visibleCount >= allCharacters.length
+    ? 'Show Less'
+    : 'Load More';
+}
+
+loadCharacter();
+
+export const handleCharacterClick = async (id) => {
+  const result = await getSingleCharacter(id);
+  if (result.error) {
+    console.warn(result.error);
+    return;
+  }
+  renderCharacterDetails(result.data);
+};
