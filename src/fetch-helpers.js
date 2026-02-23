@@ -12,11 +12,8 @@ export const getAllCharacters = async () => {
             url = data.next; //at some point this will make the url falsy
         }
         
-        return { data: allCharacters, error: null }
-    }
-
-    return { data: allCharacters, error: null };
-  } catch (error) {
+        return { data: allCharacters, error: null };
+    } 
     //resolved
     catch (error) {
         console.warn(error)

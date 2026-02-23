@@ -34,19 +34,12 @@ const loadCharacter = async () => {
         return;
     }
 
-<<<<<<< more-button
     allCharacters = result.data
-    renderCharacterList(allCharacters.slice(0, visibleCount));
 
+    renderCharacterList(allCharacters.slice(0, visibleCount));
+    initSearch(allCharacters)
     handleMoreCharacter()
-  } catch (error) {
-    console.error(error);
-  }
-=======
-    renderCharacterList(result.data);
-    initSearch(result.data)
->>>>>>> main
-};
+}
 
 loadCharacter();
 

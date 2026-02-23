@@ -393,14 +393,13 @@ ul#characters-list li:nth-child(10) { animation-delay: 0.30s; }
 #error-message {
   color: #e74c3c;
   text-align: center;
-<<<<<<< more-button
   font-size: 2rem;
 }
 
 #load-more-btn {
   display: block;
-  background: linear-gradient(135deg, #45a29e, #66fcf1);
-  color: #0b0c10;
+  background: #8b6914;
+  color: #0d0a04;
   margin: 20px auto;
   border: none;
   border-radius: 20px;
@@ -411,15 +410,5 @@ ul#characters-list li:nth-child(10) { animation-delay: 0.30s; }
 }
 #load-more-btn:hover  {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #66fcf1;
+  box-shadow: #f0d080
 }
-=======
-  padding: 1rem;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-}
-
-.hidden {
-  display: none;
-}
->>>>>>> main
