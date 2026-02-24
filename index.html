@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Character Explorer</title>
+    <script type="module" crossorigin src="/mod-4-project/assets/index-BaDvjOnc.js"></script>
+    <link rel="stylesheet" crossorigin href="/mod-4-project/assets/index-BEHqKot7.css">
+  </head>
+
+  <header>
+    <h1>Star Wars Character Explorer</h1>
+  </header>
+
+  <body>
+    <div id="faction-sorter">
+  <p>Enter your name to receive your assignment</p>
+  <form id="faction-form">
+    <input type="text" id="recruit-name" placeholder="Your name..." />
+    <button type="submit">Assign</button>
+  </form>
+  <div id="faction-result"></div>
+</div>
+    <p id="error-message" class="hidden"></p>
+
+    <div id="overlay"></div>
+
+    <main>
+      <section>
+        <h2>Characters (<span id="character-count">0</span>)</h2>
+
+        <form id="search-form">
+          <div>
+            <label for="query">Search Character</label>
+            <input
+              type="text"
+              id="query"
+              name="query"
+              placeholder="Search by name..."
+              required
+            />
+          </div>
+          <button type="submit">Search</button>
+        </form>
+
+        <ul id="characters-list"></ul>
+        <button id="load-more-btn" class="hidden">Load More</button>
+      </section>
+      <section id="character-details" class="hidden"></section>
+    </main>
+
+  </body>
+</html>
