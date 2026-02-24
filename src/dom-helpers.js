@@ -27,6 +27,9 @@ export const renderCharacterDetails = (character) => {
         <p><strong>Height:</strong> ${character.height} cm</p>
         <p><strong>Mass:</strong> ${character.mass} kg</p>
         <p><strong>Gender:</strong> ${character.gender}</p>
+        <p><strong>eye_color:</strong> ${character.eye_color}</p>
+        <p><strong>skin_color:</strong> ${character.skin_color}</p>
+        <p><strong>hair_color:</strong> ${character.hair_color}</p>
         <button id="close-details">Close Dossier</button>
     `;
 

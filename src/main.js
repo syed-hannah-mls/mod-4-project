@@ -24,7 +24,7 @@ factionForm.addEventListener('submit', (e) => {
 
 const loadMore = document.querySelector('#load-more-btn')
 let allCharacters = []
-let visibleCount = 5
+let visibleCount = 15
 
 const loadCharacter = async () => {
     const result = await getAllCharacters();
@@ -60,10 +60,10 @@ function handleMoreCharacter() {
 
     loadMore.addEventListener(('click'), () => {
         if (visibleCount >= allCharacters.length){
-            visibleCount = 5
+            visibleCount = 15
             loadMore.textContent = 'Load More'
         } else {
-            visibleCount += 5
+            visibleCount += 15
 
             if (visibleCount >= allCharacters.length){
                 loadMore.textContent = 'Show Less'
