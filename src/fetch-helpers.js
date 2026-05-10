@@ -1,7 +1,7 @@
 export const getAllCharacters = async () => {
     try {
         let allCharacters = [];
-        let url = 'https://swapi.dev/api/people/';
+        let url = 'https://swapi.py4e.com/api/people/';
 
         while (url) { //This loop is to keep making fetch calls to recieve more than 10 people
             const response = await fetch(url);
@@ -23,7 +23,7 @@ export const getAllCharacters = async () => {
 
 export const getSingleCharacter = async (id) => {
   try {
-    const response = await fetch(`https://swapi.dev/api/people/${id}/`);
+    const response = await fetch(`https://swapi.py4e.com/api/people/${id}/`);
 
     if (!response.ok) {
       throw new Error("Error fetching character");
